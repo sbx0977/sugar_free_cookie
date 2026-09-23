@@ -150,7 +150,11 @@ body{background-color:var(--bg);background-image:radial-gradient(circle at 12% 1
 .brand-logo{display:block;width:clamp(205px,28vw,260px);height:auto;max-width:100%;object-fit:contain}
 .sidebar .brand-title{width:190px!important}.sidebar .brand-logo{width:190px}
 .topbar>div:first-child:before{display:none!important}
-@media(max-width:767px){.topbar{align-items:flex-start!important;min-height:70px!important;padding-top:7px!important}.topbar .brand-title{width:225px!important}.topbar .brand-logo{width:225px!important}}
+@media(max-width:767px){.topbar{align-items:flex-start!important;min-height:0!important;padding-top:0!important;margin-bottom:-10px!important}.topbar>div:first-child{width:100%!important;flex:1 1 100%!important;min-width:0!important}.topbar .brand-title{width:100%!important;max-width:none!important;height:auto!important;overflow:visible!important}.topbar .brand-logo{width:100%!important;max-width:none!important;height:auto!important;object-fit:contain!important;object-position:center!important;margin:0!important}.topbar .top-actions{position:absolute!important;right:0!important;top:10px!important}}
+/* supplied bakery illustration as the full-page background */
+html,body{background-color:#fff1cf!important}
+body{background-image:url("https://sbx0977.github.io/sugar_free_cookie/background.png")!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;background-attachment:fixed!important}
+@media(max-width:767px){.main{padding-top:2px!important}.topbar{margin-bottom:-18px!important}.menu-section-title{margin-top:0!important}}
 </style>
 </head>
 <body>
