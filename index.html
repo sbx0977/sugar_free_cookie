@@ -219,6 +219,8 @@ body{background-image:url("https://sbx0977.github.io/sugar_free_cookie/backgroun
 .task-delete span,.task-edit span{font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:1}
 .task.swiped .task-surface{transform:translateX(-112px)}
 .task.swiped .task-delete,.task.swiped .task-edit{opacity:1;pointer-events:auto}
+.task.swiping .task-surface{transition:none}
+.task.swiping .task-delete,.task.swiping .task-edit{opacity:1}
 .task.dragging{z-index:12;opacity:.76;transform:scale(1.015);border:1px dashed #d58d6f;background:rgba(255,250,240,.7);box-shadow:0 8px 18px rgba(104,59,36,.16)}
 .task.dragging .task-surface{transform:none!important}
 .task-drag-grip{position:absolute;left:-8px;top:50%;width:8px;height:22px;transform:translateY(-50%);display:grid;place-items:center;color:#c39170;font-size:13px;line-height:.65;opacity:0;pointer-events:none}
@@ -343,28 +345,34 @@ function bindTaskGestures(){
   const clearTargets=()=>list.querySelectorAll('.task-reorder-target').forEach(el=>el.classList.remove('task-reorder-target'));
   const beginGesture=(row,surface,x,y,pointerId=null)=>{
     list.querySelectorAll('.task.swiped').forEach(item=>{if(item!==row)item.classList.remove('swiped')});
-    state={row,surface,pointerId,startX:x,startY:y,drag:false,swipe:false,timer:setTimeout(()=>{if(!state)return;state.drag=true;row.classList.add('dragging');if(pointerId!==null){try{row.setPointerCapture(pointerId)}catch{}}},430)};
+    state={row,surface,pointerId,startX:x,startY:y,lastX:x,lastY:y,openAtStart:row.classList.contains('swiped'),drag:false,swipe:false,timer:setTimeout(()=>{if(!state)return;state.drag=true;row.classList.remove('swiping');surface.style.transform='';row.classList.add('dragging');if(pointerId!==null){try{row.setPointerCapture(pointerId)}catch{}}},430)};
+    if(pointerId!==null){try{row.setPointerCapture(pointerId)}catch{}}
   };
   const moveGesture=(x,y,preventDefault)=>{
     if(!state)return;
+    state.lastX=x;state.lastY=y;
     const dx=x-state.startX,dy=y-state.startY;
-    if(!state.drag&&(Math.abs(dx)>28||Math.abs(dy)>28)){
+    if(!state.drag&&Math.abs(dx)>8&&Math.abs(dx)>Math.abs(dy)){
+      clearTimeout(state.timer);preventDefault();state.swipe=true;state.row.classList.add('swiping');
+      const distance=Math.min(112,Math.abs(dx));
+      state.surface.style.transform=`translateX(${state.openAtStart?-112+distance:-distance}px)`;
+    }else if(!state.drag&&Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){
       clearTimeout(state.timer);
-      if(Math.abs(dx)>Math.abs(dy)){preventDefault();state.swipe=true;state.row.classList.toggle('swiped',dx>0)}
     }
     if(state.drag){preventDefault();const target=document.elementFromPoint(x,y)?.closest('article.task');if(target&&target!==state.row&&target.parentElement===state.row.parentElement){clearTargets();target.classList.add('task-reorder-target');const rect=target.getBoundingClientRect();if(y<rect.top+rect.height/2)target.before(state.row);else target.after(state.row)}}
   };
-  const endGesture=async()=>{if(!state)return;clearTimeout(state.timer);const {row,pointerId,drag}=state;row.classList.remove('dragging');clearTargets();if(pointerId!==null){try{row.releasePointerCapture?.(pointerId)}catch{}};state=null;if(drag){await saveTaskOrder();await renderTasks(false)}};
+  const endGesture=async(x=null,y=null)=>{if(!state)return;clearTimeout(state.timer);if(x!==null){state.lastX=x;state.lastY=y}const {row,surface,pointerId,drag,openAtStart}=state,dx=state.lastX-state.startX,dy=state.lastY-state.startY,horizontal=Math.abs(dx)>24&&Math.abs(dx)>Math.abs(dy);row.classList.remove('dragging','swiping');surface.style.transform='';clearTargets();if(pointerId!==null){try{row.releasePointerCapture?.(pointerId)}catch{}};if(!drag&&horizontal)row.classList.toggle('swiped',!openAtStart);state=null;if(drag){await saveTaskOrder();await renderTasks(false)}};
   const locateRow=target=>{const row=target.closest?.('article.task'),surface=target.closest?.('.task-surface');return row&&surface&&!target.closest?.('button')?{row,surface}:null};
-  const touchDevice='ontouchstart' in window||navigator.maxTouchPoints>0;
-  if(touchDevice){
+  if('PointerEvent' in window){
+    list.addEventListener('pointerdown',e=>{if(!e.isPrimary||e.button!==0)return;const found=locateRow(e.target);if(found)beginGesture(found.row,found.surface,e.clientX,e.clientY,e.pointerId)},{passive:true});
+    list.addEventListener('pointermove',e=>{if(!state||!e.isPrimary||e.pointerId!==state.pointerId)return;moveGesture(e.clientX,e.clientY,()=>e.preventDefault())},{passive:false});
+    list.addEventListener('pointerup',e=>{if(state&&e.pointerId===state.pointerId)endGesture(e.clientX,e.clientY)});
+    list.addEventListener('pointercancel',e=>{if(state&&e.pointerId===state.pointerId)endGesture()});
+  }else{
     list.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;const found=locateRow(e.target);if(!found)return;const touch=e.touches[0];beginGesture(found.row,found.surface,touch.clientX,touch.clientY)},{passive:true});
     list.addEventListener('touchmove',e=>{if(!state||e.touches.length!==1)return;const touch=e.touches[0];moveGesture(touch.clientX,touch.clientY,()=>e.preventDefault())},{passive:false});
-    list.addEventListener('touchend',endGesture,{passive:true});list.addEventListener('touchcancel',endGesture,{passive:true});
-  }else{
-    list.addEventListener('pointerdown',e=>{const found=locateRow(e.target);if(found)beginGesture(found.row,found.surface,e.clientX,e.clientY,e.pointerId)},{passive:true});
-    list.addEventListener('pointermove',e=>moveGesture(e.clientX,e.clientY,()=>e.preventDefault()),{passive:false});
-    list.addEventListener('pointerup',endGesture);list.addEventListener('pointercancel',endGesture);list.addEventListener('pointerleave',()=>{if(state?.drag)endGesture()});
+    list.addEventListener('touchend',e=>{const touch=e.changedTouches[0];endGesture(touch?.clientX??null,touch?.clientY??null)},{passive:true});
+    list.addEventListener('touchcancel',()=>endGesture(),{passive:true});
   }
 }
 function resizeMenuPaper(){
