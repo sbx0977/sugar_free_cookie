@@ -139,7 +139,7 @@ body{background-color:var(--bg);background-image:radial-gradient(circle at 12% 1
 .goal-card{background-image:url("./featured-goal.png")!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important;border:0!important;box-shadow:0 5px 0 rgba(181,116,64,.14),0 12px 24px rgba(103,61,37,.13)!important;min-height:220px!important}
 .goal-card:before,.goal-card:after{display:none!important}.goal-ribbon{display:none!important}.goal-art svg{visibility:hidden!important}.goal-main{padding-top:55px!important;gap:8px!important}.goal-art{width:78px!important;height:112px!important;flex-basis:78px!important}.goal-art svg{width:78px!important;height:112px!important}.goal-main>div:last-child{padding-top:9px!important}.goal-title{font-size:18px!important}.goal-desc{font-size:10px!important}.goal-meta{font-size:9px!important}.progress{margin-left:79px!important;margin-right:35px!important;margin-top:7px!important;transform:translateY(-20px)!important}.goal-progress-meta{margin-left:86px!important;margin-right:30px!important;transform:translateY(-20px)!important}.goal-corner-cookie{display:none!important}
 .task-meta .carried-label{color:#d27d68;font-weight:700}
-.task-groups{display:block}.task-group{margin:8px 0 2px}.task-group:first-child{margin-top:2px}.task-group-title{display:flex;align-items:center;justify-content:space-between;padding:3px 2px 4px;color:#a06e55;font:700 9px/1.2 "Baloo 2",sans-serif;letter-spacing:.5px}.task-group-title:before{content:"";width:5px;height:5px;margin-right:5px;border-radius:50%;background:#e89a7e;box-shadow:0 0 0 2px rgba(232,154,126,.16)}.task-group-title span{display:flex;align-items:center;gap:5px}.task-group-title em{font-style:normal;font-size:8px;color:#c18c70;font-weight:600}.task-group .task{padding-top:9px}.category-field input{background:#fffaf0}
+.task-groups{display:block}.task-group{margin:8px 0 2px}.task-group:first-child{margin-top:2px}.task-group-title{display:flex;align-items:center;justify-content:space-between;padding:3px 2px 4px;color:#a06e55;font:700 9px/1.2 "Baloo 2",sans-serif;letter-spacing:.5px}.task-group-title:before{content:"";width:5px;height:5px;margin-right:5px;border-radius:50%;background:#e89a7e;box-shadow:0 0 0 2px rgba(232,154,126,.16)}.task-group-title span{display:flex;align-items:center;gap:5px}.task-group-title em{font-style:normal;font-size:8px;color:#c18c70;font-weight:600}.task-group .task{padding-top:9px;border-bottom:0}.task-group+.task-group{border-top:1px dashed #e2cda9;padding-top:5px}.task-group[data-category="未分类"] .task+.task{border-top:1px dashed #e2cda9}.history-paper .task-group+.task-group{border-top-color:#e5cda4}.category-delete{display:inline-grid;place-items:center;width:22px;height:22px;margin-left:7px;padding:0;border:0;background:transparent;color:#c7866c;opacity:.8}.category-delete svg{width:13px;height:13px}.category-delete:hover{color:#a95443;opacity:1}.category-title-actions{display:flex;align-items:center;gap:2px}.tag-field input{padding-right:34px!important;background:#fffaf0}.tag-field{position:relative}.tag-field:after{content:"⌄";position:absolute;right:13px;bottom:9px;color:#b67d5d;font-size:15px;line-height:1;pointer-events:none}.tag-field datalist{display:none}.tag-options{position:absolute;z-index:25;top:100%;left:0;right:0;max-height:174px;overflow:auto;margin-top:3px;padding:4px;background:#fffdf7;border:1px solid #dfbf88;border-radius:11px;box-shadow:0 8px 20px rgba(91,52,37,.15)}.tag-options[hidden]{display:none}.tag-option{display:flex;align-items:center;justify-content:space-between;gap:6px}.tag-option+.tag-option{border-top:1px solid #f1e4ce}.tag-option-pick{flex:1;min-width:0;padding:9px 8px;border:0;background:transparent;text-align:left;color:#69432e;font-size:11px}.tag-option-delete{flex:0 0 30px;height:30px;display:grid;place-items:center;border:0;background:transparent;color:#b87861}.tag-option-delete svg{width:14px;height:14px}
 @media(max-width:767px){.goal-card{min-height:205px!important;padding:14px 13px 12px!important;background-size:100% 100%!important}.goal-main{padding-top:68px!important;gap:8px!important}.goal-art{width:176px!important;height:87px!important;flex-basis:176px!important}.goal-art svg{width:176px!important;height:87px!important}.goal-main>div:last-child{padding-top:3px!important}.goal-title{font-size:14px!important}.goal-desc{font-size:8px!important}.goal-meta{font-size:7px!important}.progress{margin-left:190px!important;margin-right:14px!important;margin-top:8px!important}.goal-progress-meta{margin-left:190px!important;margin-right:10px!important}}
 /* the illustration is the card; keep its transparent pixels transparent */
 #goalContainer{overflow:visible!important}
@@ -200,6 +200,8 @@ body{background-image:url("https://sbx0977.github.io/sugar_free_cookie/backgroun
 #viewCalendar .history-task small{display:block;margin-top:4px;color:#aa795f;font-size:10px;line-height:1.6;white-space:normal;overflow-wrap:anywhere}
 #viewCalendar .history-task.completed strong{color:#a68a6d;text-decoration:line-through;text-decoration-thickness:1px}
 #viewCalendar .history-task.completed small{color:#789268}
+#viewCalendar .task-group .history-task{border-bottom:0}
+#viewCalendar .task-group[data-category="未分类"] .history-task+.history-task{border-top:1px dashed #e5cda4}
 #viewCalendar .task-group-title{justify-content:flex-start;font-size:10px;padding-top:9px;border-bottom:1px solid rgba(211,179,128,.3)}
 #viewCalendar .task-group-title em{margin-left:auto}
 #viewCalendar .menu-empty{padding:32px 0 16px;text-align:center;color:#aa8066;font-size:11px;line-height:1.8}
@@ -239,6 +241,7 @@ body{background-image:url("https://sbx0977.github.io/sugar_free_cookie/backgroun
 <symbol id="i-pudding" viewBox="0 0 64 64"><path d="M17 26h30l-3 25H20z" fill="#f0c477" stroke="#805039" stroke-width="2"/><path d="M17 27c0-6 30-6 30 0" fill="#fff0c9" stroke="#805039" stroke-width="2"/><path d="M27 20c2-6 8-6 10 0" fill="none" stroke="#d17d61" stroke-width="2"/></symbol>
 <symbol id="i-cupcake" viewBox="0 0 64 64"><path d="M17 31h30l-4 21H21z" fill="#e8a1a0" stroke="#805039" stroke-width="2"/><path d="M15 31c0-9 7-13 10-9 2-8 12-8 14 0 5-4 10 1 10 9z" fill="#fff3dc" stroke="#805039" stroke-width="2"/><circle cx="31" cy="24" r="2" fill="#ef9b83"/></symbol>
 <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m19 13 1.1 1.1-2 3.4-1.5-.5a7.8 7.8 0 0 1-1.7 1l-.3 1.6H11l-.3-1.6a7.8 7.8 0 0 1-1.7-1l-1.5.5-2-3.4L6.6 13a7.4 7.4 0 0 1 0-2L5.5 9.9l2-3.4 1.5.5a7.8 7.8 0 0 1 1.7-1l.3-1.6h3.6l.3 1.6a7.8 7.8 0 0 1 1.7 1l1.5-.5 2 3.4L19 11a7.4 7.4 0 0 1 0 2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v6m4-6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="i-pet" viewBox="0 0 160 160"><path d="M45 67c-13-27 12-43 29-29 13-25 49-15 48 13 25-3 32 28 13 41v30c0 17-12 28-30 28H57c-18 0-29-11-29-28V92C9 79 20 48 45 67z" fill="#f3c98a" stroke="#74442f" stroke-width="4"/><path d="M45 68c-7-17 5-30 18-26 8-20 35-18 42 0 15-7 28 10 19 24" fill="#fff1d2" stroke="#74442f" stroke-width="4"/><circle cx="57" cy="89" r="5" fill="#633b2c"/><circle cx="103" cy="89" r="5" fill="#633b2c"/><path d="M72 108c6 6 12 6 18 0" fill="none" stroke="#cf7565" stroke-width="4" stroke-linecap="round"/><path d="M30 105c-18 3-22-12-9-19M130 105c18 3 22-12 9-19" fill="none" stroke="#74442f" stroke-width="4" stroke-linecap="round"/><path d="M46 127c12 8 55 9 70-1" fill="none" stroke="#d98e70" stroke-width="4" stroke-linecap="round"/></symbol>
 <symbol id="i-chef-cookie" viewBox="0 0 160 140"><ellipse cx="80" cy="128" rx="53" ry="7" fill="#d7b88f" opacity=".5"/><path d="M46 91c-4-8-2-17 7-20 4-2 8-2 12 0 7-9 24-10 31 0 5-3 13-2 18 3 6 6 4 14 0 19v25H47z" fill="#f3b16e" stroke="#744634" stroke-width="3" stroke-linejoin="round"/><path d="M58 67c-7-5-6-16 2-20 1-10 14-15 21-7 7-8 21-3 21 8 9-3 17 6 13 14-2 4-6 7-11 7H64c-2 0-4-1-6-2z" fill="#fff4dc" stroke="#744634" stroke-width="3" stroke-linejoin="round"/><path d="M71 43c2-5 8-6 12-2M88 39c4-5 11-3 13 2" fill="none" stroke="#e8b889" stroke-width="2" stroke-linecap="round"/><circle cx="67" cy="76" r="3" fill="#63392d"/><circle cx="95" cy="76" r="3" fill="#63392d"/><path d="M76 88c4 5 10 5 15 0" fill="none" stroke="#c96f62" stroke-width="2.6" stroke-linecap="round"/><circle cx="60" cy="86" r="4" fill="#ed8b7c" opacity=".7"/><circle cx="103" cy="86" r="4" fill="#ed8b7c" opacity=".7"/><path d="M56 98c7 5 17 7 27 7s20-2 27-7l4 24H52z" fill="#fff1d0" stroke="#744634" stroke-width="2.5"/><path d="M77 105h12v17H77z" fill="#f29b83" stroke="#744634" stroke-width="2"/><path d="M51 98c-8-4-17 0-20 8l-5 13h22l10-15M109 99c9-5 18-1 21 8l3 12h-23l-10-15" fill="#f3b16e" stroke="#744634" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 114h24" stroke="#744634" stroke-width="3" stroke-linecap="round"/><path d="M109 116h24" stroke="#744634" stroke-width="3" stroke-linecap="round"/><path d="M35 105h16l4 12H30z" fill="#f7c77d" stroke="#744634" stroke-width="2.5"/><path d="M37 104c1-7 11-8 13 0" fill="none" stroke="#fff2d5" stroke-width="4" stroke-linecap="round"/><circle cx="39" cy="111" r="1.8" fill="#8b5137"/><circle cx="47" cy="109" r="1.8" fill="#8b5137"/><path d="M112 105h16l-3 12h-17z" fill="#f7c77d" stroke="#744634" stroke-width="2.5"/><path d="M114 104c1-7 11-8 13 0" fill="none" stroke="#fff2d5" stroke-width="4" stroke-linecap="round"/><circle cx="116" cy="111" r="1.8" fill="#8b5137"/><circle cx="124" cy="109" r="1.8" fill="#8b5137"/><path d="M69 119h22" stroke="#744634" stroke-width="2" stroke-linecap="round" opacity=".5"/></symbol>
@@ -314,7 +317,7 @@ body{background-image:url("https://sbx0977.github.io/sugar_free_cookie/backgroun
 <div class="modal-backdrop" id="completeGoalModal"><div class="modal"><h3>出餐完成！</h3><div class="field"><label>完成寄语（可选）</label><textarea id="goalMemo" placeholder="终于完成了！"></textarea></div><div class="modal-actions"><button class="btn" id="cancelCompleteGoal">再等等</button><button class="btn primary" id="confirmCompleteGoal">保存并归档</button></div></div></div>
 <div class="toast" id="toast"></div>
 <script>
-const DB_NAME='SugarFreeCookieDB',DB_VERSION=1,CONFIG_KEY='sugarfreecookie.openai.config';let db=null,selectedDate=dateKey(new Date()),calendarMonth=new Date(),currentView='home';
+const DB_NAME='SugarFreeCookieDB',DB_VERSION=1,CONFIG_KEY='sugarfreecookie.openai.config',TAG_KEY='sugarfreecookie.dessert-tags';let db=null,selectedDate=dateKey(new Date()),calendarMonth=new Date(),currentView='home';
 function dateKey(d){const x=new Date(d),y=x.getFullYear(),m=String(x.getMonth()+1).padStart(2,'0'),day=String(x.getDate()).padStart(2,'0');return `${y}-${m}-${day}`}
 function prettyDate(key){const [y,m,d]=key.split('-').map(Number);return `${y}年${m}月${d}日`}
 function shortDate(key){const parts=String(key||'').split('-').map(Number);return parts.length===3&&parts.every(Number.isFinite)?`${parts[1]}月${parts[2]}日`:''}
@@ -325,7 +328,11 @@ function tx(store,mode='readonly'){return db.transaction(store,mode).objectStore
 function all(store){return new Promise((resolve,reject)=>{const r=tx(store).getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
 function put(store,obj){return new Promise((resolve,reject)=>{const r=tx(store,'readwrite').put(obj);r.onsuccess=()=>resolve(obj);r.onerror=()=>reject(r.error)})}
 function uuid(){return crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random().toString(16).slice(2)}
-async function seed(){const tasks=await all('tasks'),goals=await all('goals');if(!tasks.length){const today=dateKey(new Date()),yesterday=dateKey(new Date(Date.now()-86400000));await put('tasks',{id:uuid(),title:'修复 Windows Bun 构建问题',note:'把打包环境里的 Bun 依赖整理好',date:today,createdAt:Date.now(),completed:false,minutes:45,dessert:'cake',category:'开发',carriedFrom:null});await put('tasks',{id:uuid(),title:'整理 API Token 价格表',note:'把常见模型的官方价格整理成一张表',date:today,createdAt:Date.now()+1,completed:false,minutes:30,dessert:'pudding',category:'整理',carriedFrom:null});await put('tasks',{id:uuid(),title:'设计 AI 工作台首页',note:'确定甜品店主题与移动端布局',date:today,createdAt:Date.now()+2,completed:false,minutes:60,dessert:'cupcake',category:'设计',carriedFrom:null});await put('tasks',{id:uuid(),title:'昨天留下的小任务',note:'这个示例展示自动顺延',date:today,createdAt:Date.now()+3,completed:false,minutes:20,dessert:'cookie',category:'',carriedFrom:yesterday})}if(!goals.length)await put('goals',{id:uuid(),title:'完成 AI 工作台第一版',description:'把想法变成一个真正可以每天使用的甜品工作台。',createdAt:Date.now(),targetDate:'2026-10-01',status:'active'})}
+function getDessertTags(){try{const tags=JSON.parse(localStorage.getItem(TAG_KEY)||'[]');return Array.isArray(tags)?tags.filter(Boolean):[]}catch{return []}}
+function rememberDessertTag(tag){const value=String(tag||'').trim();if(!value)return;const tags=getDessertTags();if(!tags.includes(value)){tags.push(value);localStorage.setItem(TAG_KEY,JSON.stringify(tags))}}
+function fillDessertTagOptions(){const list=document.getElementById('dessertTagOptions');if(!list)return;list.innerHTML=getDessertTags().sort((a,b)=>a.localeCompare(b,'zh-CN')).map(tag=>`<option value="${escapeHtml(tag)}"></option>`).join('')}
+async function syncDessertTags(){const tasks=await all('tasks');tasks.forEach(t=>{if(String(t.category||'').trim())rememberDessertTag(t.category)});fillDessertTagOptions()}
+async function seed(){const goals=await all('goals');if(!goals.length)await put('goals',{id:uuid(),title:'完成 AI 工作台第一版',description:'把想法变成一个真正可以每天使用的甜品工作台。',createdAt:Date.now(),targetDate:'2026-10-01',status:'active'})}
 async function carryForward(){const tasks=await all('tasks'),today=dateKey(new Date());for(const t of tasks.filter(t=>!t.completed&&t.date<today)){await put('tasks',{...t,date:today,carriedFrom:t.carriedFrom||t.date})}}
 async function getActiveGoal(){return (await all('goals')).find(g=>g.status==='active')||null}
 function dessertSvg(type){return `<svg><use href="#i-${type==='cake'?'cake':type==='pudding'?'pudding':type==='cupcake'?'cupcake':'cookie'}"/></svg>`}
@@ -333,9 +340,10 @@ async function renderGoal(){const box=document.getElementById('goalContainer'),g
 async function getTasksForDate(key){return (await all('tasks')).filter(t=>t.date===key).sort((a,b)=>(a.completed-b.completed)||((a.order??a.createdAt)-(b.order??b.createdAt)))}
 function taskCategory(t){return String(t.category||'未分类').trim()||'未分类'}
 function renderTask(t){const carry=t.carriedFrom&&t.date&&t.carriedFrom!==t.date?`<span class="carried-label">原定 ${escapeHtml(shortDate(t.carriedFrom))} · 顺延到了 ${escapeHtml(shortDate(t.date))}</span>`:'';return `<article class="task ${t.completed?'completed':''}" data-task-id="${escapeHtml(t.id)}"><span class="task-drag-grip" aria-hidden="true">⋮<br>⋮</span><div class="task-surface"><div class="task-icon">${dessertSvg(t.completed?'cookie':t.dessert)}</div><div class="task-main"><div class="task-title">${escapeHtml(t.title)}</div>${t.note?`<div class="task-note">${escapeHtml(t.note)}</div>`:''}<div class="task-meta">${t.minutes?`<span>预计 ${t.minutes} 分钟</span>`:''}${carry}</div></div><button class="task-check" onclick="toggleTask('${t.id}')">${t.completed?'✓':''}</button>${t.completed?'<span class="served-stamp">SERVED</span>':''}</div><button class="task-edit" onclick="editTask('${t.id}')" aria-label="编辑待办"><span aria-hidden="true">✎</span>编辑</button><button class="task-delete" onclick="deleteTask('${t.id}')" aria-label="删除待办"><span aria-hidden="true">×</span>删除</button></article>`}
-function renderTaskGroups(tasks,renderItem=renderTask){const groups=new Map();tasks.forEach(t=>{const category=taskCategory(t);if(!groups.has(category))groups.set(category,[]);groups.get(category).push(t)});const ordered=[...groups].sort(([a],[b])=>(a==='未分类')-(b==='未分类'));return `<div class="task-groups">${ordered.map(([category,list])=>`<section class="task-group">${category==='未分类'?'':`<div class="task-group-title"><span>${escapeHtml(category)}</span><em>${list.length} 项</em></div>`}${list.map(renderItem).join('')}</section>`).join('')}</div>`}
+function renderTaskGroups(tasks,renderItem=renderTask){const groups=new Map();tasks.forEach(t=>{const category=taskCategory(t);if(!groups.has(category))groups.set(category,[]);groups.get(category).push(t)});const ordered=[...groups].sort(([a],[b])=>(a==='未分类')-(b==='未分类'));return `<div class="task-groups">${ordered.map(([category,list])=>`<section class="task-group" data-category="${escapeHtml(category)}">${category==='未分类'?'':`<div class="task-group-title"><span>${escapeHtml(category)}</span><div class="category-title-actions"><em>${list.length} 项</em><button type="button" class="category-delete" data-category="${escapeHtml(category)}" onclick="deleteCategory(this.dataset.category)" aria-label="删除${escapeHtml(category)}分类"><svg aria-hidden="true"><use href="#i-trash"/></svg></button></div></div>`}${list.map(renderItem).join('')}</section>`).join('')}</div>`}
 function renderHistoryTask(t){return `<article class="history-task${t.completed?' completed':''}"><span class="history-task-icon" aria-hidden="true">${dessertSvg(t.dessert)}</span><div class="history-task-content"><strong>${escapeHtml(t.title)}</strong><small>${t.completed?'✓ 已出餐':'待制作'}${t.minutes?' · '+escapeHtml(t.minutes)+' 分钟':''}</small></div></article>`}
 async function deleteTask(id){const t=(await all('tasks')).find(x=>x.id===id);if(!t)return;const request=tx('tasks','readwrite').delete(id);await new Promise((resolve,reject)=>{request.onsuccess=resolve;request.onerror=()=>reject(request.error)});await renderTasks(false);await renderCalendar();await renderGoal();showToast('待办已删除')}
+async function deleteCategory(category){const value=String(category||'').trim();if(!value||value==='未分类')return;if(!window.confirm(`确定删除“${value}”分类吗？该分类下的待办会保留，并移到未分类。`))return;const tasks=await all('tasks');await Promise.all(tasks.filter(t=>String(t.category||'').trim()===value).map(t=>put('tasks',{...t,category:''})));const tags=getDessertTags().filter(tag=>tag!==value);localStorage.setItem(TAG_KEY,JSON.stringify(tags));const input=document.getElementById('taskCategory');if(input){if(input.value.trim()===value)input.value='';input.dispatchEvent(new Event('input'))}await refreshContext();await renderTasks(false);await renderCalendar();showToast(`已删除${value}分类`)}
 async function saveTaskOrder(){const ids=[...document.querySelectorAll('#taskList article.task')].map(el=>el.dataset.taskId).filter(Boolean);if(!ids.length)return;const tasks=await all('tasks'),byId=new Map(tasks.map(t=>[t.id,t]));await Promise.all(ids.map((id,index)=>{const t=byId.get(id);return t?put('tasks',{...t,order:index}):null}))}
 function bindTaskGestures(){
   const list=document.getElementById('taskList');
@@ -435,7 +443,42 @@ document.addEventListener('DOMContentLoaded',()=>{
   const taskModal=document.getElementById('taskModal');
   const taskHeading=taskModal.querySelector('h3');
   const taskSave=document.getElementById('saveTask');
-  const showTaskModal=(task=null)=>{
+  const oldDessert=document.getElementById('taskDessert');
+  if(oldDessert){
+    const oldField=oldDessert.closest('.field');
+    const tagField=document.getElementById('taskCategory').closest('.field');
+    if(tagField){tagField.classList.remove('category-field');tagField.classList.add('tag-field');tagField.querySelector('label').textContent='甜品标签';const input=document.getElementById('taskCategory');input.setAttribute('list','dessertTagOptions');input.setAttribute('autocomplete','off');input.setAttribute('placeholder','点击输入或选择标签');const list=document.createElement('datalist');list.id='dessertTagOptions';input.after(list)}
+    oldField?.remove();
+  }
+  const tagInput=document.getElementById('taskCategory');
+  tagInput.removeAttribute('list');
+  const tagOptions=document.createElement('div');
+  tagOptions.className='tag-options';tagOptions.id='tagOptions';tagOptions.hidden=true;
+  tagInput.after(tagOptions);
+  const renderTagOptions=()=>{
+    const query=tagInput.value.trim().toLocaleLowerCase();
+    const tags=getDessertTags().filter(tag=>tag.toLocaleLowerCase().includes(query));
+    tagOptions.replaceChildren();
+    tags.forEach(tag=>{
+      const row=document.createElement('div');row.className='tag-option';
+      const pick=document.createElement('button');pick.type='button';pick.className='tag-option-pick';pick.textContent=tag;
+      pick.onclick=()=>{tagInput.value=tag;tagOptions.hidden=true};
+      const remove=document.createElement('button');remove.type='button';remove.className='tag-option-delete';remove.title=`删除${tag}分类`;remove.setAttribute('aria-label',`删除${tag}分类`);
+      remove.innerHTML='<svg aria-hidden="true"><use href="#i-trash"/></svg>';
+      remove.onclick=async()=>{await deleteCategory(tag);renderTagOptions()};
+      row.append(pick,remove);tagOptions.append(row);
+    });
+    tagOptions.hidden=!tags.length;
+  };
+  tagInput.addEventListener('focus',renderTagOptions);
+  tagInput.addEventListener('click',renderTagOptions);
+  tagInput.addEventListener('input',renderTagOptions);
+  tagInput.addEventListener('keydown',e=>{if(e.key==='Escape')tagOptions.hidden=true});
+  document.addEventListener('pointerdown',e=>{if(!tagInput.closest('.tag-field')?.contains(e.target))tagOptions.hidden=true});
+  const showTaskModal=async(task=null)=>{
+    const existing=await all('tasks');
+    existing.forEach(item=>{if(String(item.category||'').trim())rememberDessertTag(item.category)});
+    fillDessertTagOptions();
     taskModal.dataset.editId=task?.id||'';
     taskHeading.textContent=task?'编辑这道菜':'加一道菜';
     taskSave.textContent=task?'保存修改':'写进菜单';
@@ -444,7 +487,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('taskMinutes').value=task?.minutes||'';
     document.getElementById('taskNote').value=task?.note||'';
     document.getElementById('taskCategory').value=task?.category||'';
-    document.getElementById('taskDessert').value=task?.dessert||'cookie';
     taskModal.classList.add('show');
   };
   window.editTask=async id=>{const task=(await all('tasks')).find(item=>item.id===id);if(task)showTaskModal(task)};
@@ -454,7 +496,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(!title){showToast('请先写下任务');return}
     const id=taskModal.dataset.editId;
     const date=document.getElementById('taskDate').value||selectedDate;
-    const values={title,date,note:document.getElementById('taskNote').value.trim(),minutes:Number(document.getElementById('taskMinutes').value)||0,dessert:document.getElementById('taskDessert').value,category:document.getElementById('taskCategory').value.trim()};
+    const tag=document.getElementById('taskCategory').value.trim();
+    rememberDessertTag(tag);
+    fillDessertTagOptions();
+    const values={title,date,note:document.getElementById('taskNote').value.trim(),minutes:Number(document.getElementById('taskMinutes').value)||0,category:tag};
     if(id){const task=(await all('tasks')).find(item=>item.id===id);if(task)await put('tasks',{...task,...values})}
     else await put('tasks',{id:uuid(),...values,createdAt:Date.now(),order:Date.now(),completed:false,carriedFrom:null});
     taskModal.classList.remove('show');selectedDate=date;await refreshContext();await renderTasks(false);await renderCalendar();await renderGoal();showToast(id?'待办已更新':'已加入今日菜单');
