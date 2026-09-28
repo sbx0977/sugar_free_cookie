@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(oldDessert){
     const oldField=oldDessert.closest('.field');
     const tagField=document.getElementById('taskCategory').closest('.field');
-    if(tagField){tagField.classList.remove('category-field');tagField.classList.add('tag-field');tagField.querySelector('label').textContent='甜品标签';const input=document.getElementById('taskCategory');input.setAttribute('list','dessertTagOptions');input.setAttribute('autocomplete','off');input.setAttribute('placeholder','点击输入或选择标签');const list=document.createElement('datalist');list.id='dessertTagOptions';input.after(list)}
+    if(tagField){tagField.classList.remove('category-field');tagField.classList.add('tag-field');tagField.querySelector('label').textContent='甜品标签';const input=document.getElementById('taskCategory');input.setAttribute('list','dessertTagOptions');input.setAttribute('autocomplete','off');input.setAttribute('placeholder','点击输入或选择标签');const list=document.createElement('datalist');list.id='dessertTagOptions';input.after(list);document.getElementById('taskName').closest('.field').before(tagField)}
     oldField?.remove();
   }
   const tagInput=document.getElementById('taskCategory');
